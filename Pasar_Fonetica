@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script>
+// Pasar fonetica ENg a Español
+//Dividir entrada en chars
+//Reemplazar chars individuales
+//Reemplazar estructuras
+	
+function Spa(Entrada){
+ unum= Reemp(Entrada,"y","i");
+ due= ReempMuti(unum,"c","h","j");
+
+// Nuevo:
+
+ quin = ReempMuti(due,"a","h","a");
+ ses = ReempMuti(quin,"e","h","e");
+ sep = ReempMuti(ses,"i","h","i");
+ oct = ReempMuti(sep,"o","h","o");
+ non = ReempMuti(oct,"u","h","u");
+ 
+ dec= ReempMuti(non,"o","o","u");
+ 
+  ultim = ReempMuti(dec,"i","i","i");
+
+ // era : return cua
+ 
+ // "Diccionario"
+ 
+ ultim=Palabras(ultim,"Yisra'el","Israel");
+ ultim=Palabras(ultim,"Kena'an","Cna'an");
+ 
+ 
+return ultim
+}
+
+</script> 
+<script>
+function Teclas(e){
+    var unicode=e.keyCode? e.keyCode : e.charCode
+    
+	if (unicode=="71"){
+		console.log("Se ha presionado g");
+		Funcionar();
+	}else if (unicode=="66"){
+		console.log("Se ha presionado b");
+		Blanquear();
+	}
+}
+
+</script>
+<script>
+function Blanquear (){
+
+a=document.getElementById("Entrada");
+a.value="";
+
+}
+
+
+function Reemp(entrada,buscando,reemplazo){
+	var datos = entrada.split("");
+	for (var i = 0; i < datos.length; i++)
+		{
+	ActualA= datos[i];
+	if(ActualA == buscando){
+
+	// reemplazar a mano
+	datos[i] = reemplazo;
+
+
+	}
+	}
+
+
+	var salida =datos.join("");
+	
+	return salida;
+	
+	}
+	
+</script>
+<script>
+function Palabras(entrada,buscando,reemplazo){
+	entrada=Reemp(entrada,"-"," ");
+	var datos = entrada.split(" ");
+	for (var i = 0; i < datos.length; i++)
+		{
+	ActualA= datos[i];
+	if(ActualA == buscando){
+
+	// reemplazar a mano
+	datos[i] = reemplazo;
+	
+	}
+
+	}
+
+
+	var salida =datos.join(" ");
+	
+	return salida;
+	
+	}
+
+</script><script>
+function ReempMuti(Entrada,a,b,Reemplazo){
+
+var datos = Entrada.split("");
+	for (var i = 0; i < datos.length; i++)
+		{
+	ActualA= datos[i];
+	g= i+1;
+	Sig= datos[g];
+	
+	if(ActualA == a && Sig == b ){
+
+	// reemplazar a mano
+	
+	datos.splice(g, 1);
+	datos[i] = Reemplazo;
+
+
+	}
+	
+	}
+	
+	var salida =datos.join("");
+	
+	return salida;
+
+}
+	
+
+
+</script>
+<script>
+function Funcionar(){
+var Y= document.getElementById("Entrada");
+var yk= Y.value;
+var T = document.getElementById("Salida");
+var D= Spa(yk);
+T.value=D;
+T.select();
+}
+
+</script>
+
+
+<script>
+ function Invertir(){
+ var T = document.getElementById("Salida");
+ var Y= document.getElementById("Entrada");
+ Y.value=T.value;
+ 
+ }
+
+</script>
+
+<style>
+body{
+
+font-size:15px; 
+font-family: 'Gisha';
+text-align:center; 
+}
+</style>
+</head>
+<body  onkeyup="Teclas(event);" style="
+font-size:15px; 
+font-family: Trebuchet MS;
+text-align:center; ">
+
+<div id="Titulo" style="background-color: rgb(100, 149, 237);
+border-top-color: rgb(68, 68, 68);
+border-top-style: solid;
+border-top-width: 5px; text-align: center;
+    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    color: white;
+display: block;">
+<h2> </h2>
+<h2>PASAR FON ENG A ESPAÑOL</h2>
+<h2> </h2>
+<h2> </h2>
+</div>
+
+<div id="contenido">
+
+<table style="width:100%">
+
+  <tr>
+    <td>
+<div id="entrada">
+<h4>Pegar texto aquí</h4>
+
+<textarea rows="40" cols="50" id="Entrada">
+</textarea>
+</div></td>
+
+<td>
+
+<form action="">
+<input type="button" onclick="Funcionar();"  value="Pasar">
+</form>
+
+<form action="">
+<input type="button" onclick="Blanquear();"  value="Blanquear">
+</form>
+
+<form action="">
+<input type="button" onclick="Invertir();"  value="Invertir">
+</form>
+
+
+<h5> <p>TECLAS: </p> </h5>
+<h6> <p>G= Funcionar </p>
+<p>B = Blanquear</p>
+</h6>
+
+
+</td>
+    <td>
+	
+<div id="salida">
+<h4>Salida</h4>
+
+<textarea rows="40" cols="50" id="Salida">
+</textarea>
+</div></td>		
+    
+  </tr>
+  
+</table>
+
+
+
+
+
+</div>
+
+</body>
+
+</html>
