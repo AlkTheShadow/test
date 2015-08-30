@@ -66,7 +66,7 @@ T.select();
 body{
 
 font-size:15px; 
-font-family: 'Gisha';
+font-family: 'Trebuchet MS';
 text-align:center; 
 }
 </style>
