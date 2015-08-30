@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script>
+
+function Decode (a){
+var SAL=[];
+var ENT= a.toString().split("");
+for (var i = 0; i < a.length; i++){
+var ActualA= ENT[i];
+var valor = ActualA.charCodeAt(0);	
+SAL[SAL.length] = valor;
+	}
+return SAL
+
+}
+
+function corregir (a){
+raw = Decode(a);
+SAL =[];
+// recorrer
+for (var i = 0; i < raw.length; i++){
+Actual = raw[i];
+anterior = raw[i-1];
+if (Actual==10 && anterior !== 46){
+Actual=32;
+}
+SAL[SAL.length] = Actual;
+}
+return SAL;
+}
+
+function Recode (a){
+var SAL=[];
+for (var i = 0; i < a.length; i++){
+var ActualA= a[i];
+var car = String.fromCharCode(ActualA);	
+SAL[SAL.length] = car;
+	}
+	
+SAL= SAL.join("");	
+return SAL
+
+}
+
+
+</script>
+
+
+<script>
+function Funcionar (){
+var Y= document.getElementById("Entrada");
+var yk= Y.value;
+var T = document.getElementById("Salida");
+var D = corregir(yk);
+D = Recode(D);
+T.value=D;
+T.select();
+
+
+}
+</script>
+
+<style>
+body{
+
+font-size:15px; 
+font-family: 'Gisha';
+text-align:center; 
+}
+</style>
+</head>
+<body>
+
+<header style="
+    border-top: 5px solid rgb(68,68,68);
+    background-color: cornflowerblue;
+    height: 120;
+"> <div id="Titulo" style="
+    margin-top: 50;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    color: white;
+    /* border-top: 5px solid rgb(68,68,68); */
+">
+<h2> </h2>
+<h2>CORREGIR FORMATO</h2>
+<h2> </h2>
+<h2> </h2>
+</div>
+  
+  </header>
+
+
+<div id="contenido">
+
+<table style="width:100%">
+
+  <tr>
+    <td>
+<div id="entrada">
+<h4>Pegar texto aquí</h4>
+
+<textarea rows="20" cols="30"id="Entrada" style="margin: 0px; width: 330; height: 400;">
+</textarea>
+</div></td>
+
+<td>
+
+<form action="">
+<input type="button" onclick="Funcionar();"  value="Pasar">
+</form>
+
+
+</td>
+    <td>
+	
+<div id="salida">
+<h4>Salida</h4>
+
+<textarea rows="20" cols="30" id="Salida" style="margin: 0px; width: 500; height: 400;">
+</textarea>
+</div></td>		
+    
+  </tr>
+  
+</table>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>
