@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html style="
+    font-variant: small-caps;
+    font-family: Calibri;
+    background: rgba(163, 208, 222, 0.35);
+">
+<body>
+
+<div id="Titulopag" style="
+    background-color: rgb(51, 153, 255);
+text-align: center;padding-top:20px;padding-bottom:20px ; font-size :20pt; color:aliceblue; font-family:impact;box-shadow:1px 10px 9px rgb(136, 136, 136);"> TEXTO DE ALIA </div>
+
+<br>
+<div> Abrir idioma español: 
+    <a href="http://www.bible.ort.org/intro1.asp?lang=3"> aqui </a>
+    </div>
+	  <div><br>COPIAR Y PEGAR: <br>
+
+<textarea rows="4" cols="50" style="margin: 0px; width: 386px; height: 60px;">
+//FUNCIONA OK EN CHROME Y MS EDGE - ERROR DE FUENTES EN FIREFOX
+// Consola de desarrollador (Ctrl+Shit+J   CHROME   /  F12   EDGE     /    Crtl+Shift+K  FIREFOX)
+// Copiar y pegar todo
+//Listo
+
+//--------------------------------------------------
+//INICIO
+//--------------------------------------------------
+IN= document.createElement("div");
+IN.style.backgroundColor="rgb(51, 153, 255)";
+IN.style.textAlign="center";
+IN.style.paddingTop="20px";
+IN.style.paddingBottom="20px";
+IN.style.fontSize="20pt";
+IN.style.color="aliceblue";
+IN.style.fontFamily="impact";
+IN.style.boxShadow="1px 10px 9px rgb(136, 136, 136)";
+IN.style.margin="20px 10px";
+IN.style.borderTopLeftRadius="10px";
+IN.style.borderTopRightRadius="10px";
+IN.textContent="INICIO";
+document.body.appendChild(IN);
+//--------------------------------------------------
+
+//--------------------------------------------------
+
+
+
+// DAR EL TITULO
+
+var smallMenuUno = document.getElementById("smallmenu");
+smallMenuUno.parentNode.removeChild(smallMenuUno);
+ R=document.getElementById("smallmenu");
+rr=R.textContent;
+P=rr.split(" ");
+
+var Libro=P[0]; var Parasha=P[2]
+
+SpeakerDelCap=document.getElementsByClassName("light");
+Cap=SpeakerDelCap[0].textContent;
+CAPITULO=Cap.split(":")[0]
+
+
+
+TituloDelWord=" Parashat  "+Parasha+"  • "+Libro+" Capítulo "+CAPITULO +" Versículos del 00 al 00  (incluidos)";
+
+
+titutloENpage= document.createElement("div"); titutloENpage.textContent=TituloDelWord;
+
+titutloENpage.style="font-family: Calibri,Trebuchet MS;font-size: 12pt;text-align: center;text-decoration: underline";
+document.body.appendChild(titutloENpage);
+
+
+
+// Idea auto v 1 
+// Falta verificar tamaño y familia font inherit
+// Funciona
+
+
+T=document.getElementsByTagName("table");
+T_CERO=[];
+T_UNO= [];
+T_DOS=[];
+T_TRES =[];
+T_CUATRO =[];
+
+
+for (i=0;i&lt;T.length;i++){
+var actual = T[i];
+
+Largo = actual.attributes	;
+
+f=actual.attributes.length;
+
+if(f===0){
+	
+T_CERO[T_CERO.length] = actual;	
+
+	
+	
+	}
+	
+}
+
+for (i=0;i&lt;T_CERO.length;i++){
+var actual = T_CERO[i];
+
+tds=actual.getElementsByTagName("td");
+Tds=tds.length;
+
+if(Tds === 2 || Tds === 4 || Tds === 6 || Tds === 8){
+	
+T_UNO[T_UNO.length] = actual;	
+
+
+console.log("Tds es "+Tds);
+	
+}
+
+}
+
+
+for (i=0;i&lt;T_UNO.length;i++){
+var actual = T_UNO[i];
+
+r=actual.getElementsByTagName("tr");
+Tr=tds.length;
+
+if(Tr === 2){
+	
+T_DOS[T_DOS.length] = actual;	
+
+console.log("Tr es dos en "+i);	
+}
+
+}
+
+
+
+
+for (i=0;i&lt;T_DOS.length;i++){
+var actual = T_DOS[i];
+
+r=actual.getElementsByTagName("i");
+Tr=r.length;
+
+if(Tr === 0){
+	
+T_TRES[T_TRES.length] = actual;		
+}
+
+}
+
+
+//ENCONTRANDO LA TABLA
+
+// Verificar que no sea la doble de arriba
+
+for (i=0;i&lt;T_TRES.length;i++){
+Actual = T_TRES[i];
+uu=Actual.getElementsByClassName("chaptersm");
+
+if(uu.length===0){
+
+T_CUATRO[T_CUATRO.length] = Actual;	
+
+
+console.log("No hay chap en "+Actual.textContent);
+
+}
+}
+
+// Verificar que no sea el dsicalimer
+for (i=0;i&lt;T_CUATRO.length;i++){
+Actual = T_CUATRO[i];
+V=Actual.getElementsByTagName("span");
+io=V[0];
+UUU=io.getAttribute("id");
+
+if(UUU !=="SMALLMENU"){
+
+TABLA = Actual;
+
+}
+}
+
+
+
+
+
+spans=TABLA.getElementsByTagName("span");
+
+for (i=0;i&lt;spans.length;i++){
+var actual = spans[i];
+id=actual.id;
+console.log("ID ES "+id);
+if(id=="heading1"){
+actual.parentElement.removeChild(actual);
+}
+	
+}
+	
+// -- despues de la depuracion
+
+
+cnt= document.createElement("div");
+document.body.appendChild(cnt);
+
+// -----------
+
+spans=TABLA.getElementsByTagName("span");
+function getID(a){
+var id=a.id;	
+return id;
+}
+
+for (i=0;i&lt;spans.length;i++){
+var actual = spans[i];
+id=actual.id;
+console.log("ID ES "+id);
+var day="";
+var teX= actual.textContent;
+
+switch (getID(actual)) {
+    case "TEXT":
+        day = "texto";
+var primer_letra = teX.split("")[0];
+N = Number(primer_letra);
+
+if (isNaN(N)){
+	
+	
+//	alert("Es texto");
+	
+	
+	
+var texto_traduccion =teX;	
+t= document.createElement("div");
+cnt.appendChild(t);
+t.className="DiV";	
+t.style.color = "black";
+t.textContent= texto_traduccion;
+
+	
+	
+	
+	
+	}	else{
+		
+		
+//		alert("Es numero");
+		
+
+var numero_actual =teX;		
+n= document.createElement("div");
+cnt.appendChild(n);
+n.style.color = "black";
+n.textContent= numero_actual;
+n.style.fontStyle= "italic";	
+n.className="DiV";			
+		
+		
+	}
+
+	
+		
+		
+        break;
+    case "transliteration":
+        day = "transliteracion";
+		
+var Parrafo_en =Spa(teX);			
+f= document.createElement("div");
+cnt.appendChild(f);
+f.className="DiwV";
+
+// poner el color al texto; sacado del num
+
+var COLOR_DEL_NUMERO=spans[i-2].firstChild.color;
+	if (COLOR_DEL_NUMERO =="#8484FF") {
+	   console.log("COLOR DEL NUMERO ES CELESTE");
+	   f.style.color = " rgb(51 ,102, 255)";
+	}
+	 if (COLOR_DEL_NUMERO =="#4200BD") {
+	   console.log("COLOR DEL NUMERO ES VIOLETA");
+	   f.style.color = " rgb(66,0,189)";
+	} 
+else {
+   
+f.style.color = " rgb(51 ,102, 255)";
+ console.log("COLOR DEFAULT")
+}
+
+
+
+
+
+
+
+
+
+
+
+f.textContent= Parrafo_en;
+		
+		//console.log("TRANSLIT ES EL i "+i);	
+		
+        break;
+	
+
+}
+console.log(day)	;
+
+}
+
+
+var x = document.createElement("STYLE");
+var t = document.createTextNode(".DiV {font-family: Gisha,Trebuchet MS;font-size: 9pt;}");
+var tttt = document.createTextNode(".DiwV {font-family: Gisha,Trebuchet MS;font-size: 10pt;font-weight: bold;}");
+
+x.appendChild(t);x.appendChild(tttt);
+document.head.appendChild(x);
+
+
+//---------
+// Pasar fonetica ENg a Español
+//Dividir entrada en chars
+//Reemplazar chars individuales
+//Reemplazar estructuras
+	
+function Spa(Entrada){
+ unum= Reemp(Entrada,"y","i");
+ due= ReempMuti(unum,"c","h","j");
+
+// Nuevo:
+
+ quin = ReempMuti(due,"a","h","a");
+ ses = ReempMuti(quin,"e","h","e");
+ sep = ReempMuti(ses,"i","h","i");
+ oct = ReempMuti(sep,"o","h","o");
+ non = ReempMuti(oct,"u","h","u");
+ 
+ dec= ReempMuti(non,"o","o","u");
+ 
+  ultim = ReempMuti(dec,"i","i","i");
+
+ // era : return cua
+ 
+ // "Diccionario"
+ 
+ ultim=Palabras(ultim,"Yisra'el","Israel");
+ ultim=Palabras(ultim,"Kena'an","Cna'an");
+ 
+ 
+return ultim;
+}
+
+
+function Reemp(entrada,buscando,reemplazo){
+	var datos = entrada.split("");
+	for (var i = 0; i &lt; datos.length; i++)
+		{
+	ActualA= datos[i];
+	if(ActualA == buscando){
+
+	// reemplazar a mano
+	datos[i] = reemplazo;
+
+
+	}
+	}
+
+
+	var salida =datos.join("");
+	
+	return salida;
+	
+	}
+	
+function ReempMuti(Entrada,a,b,Reemplazo){
+
+var datos = Entrada.split("");
+	for (var i = 0; i &lt; datos.length; i++)
+		{
+	ActualA= datos[i];
+	g= i+1;
+	Sig= datos[g];
+	
+	if(ActualA == a &amp;&amp; Sig == b ){
+
+	// reemplazar a mano
+	
+	datos.splice(g, 1);
+	datos[i] = Reemplazo;
+
+
+	}
+	
+	}
+	
+	var salida =datos.join("");
+	
+	return salida;
+
+}
+	
+
+function Palabras(entrada,buscando,reemplazo){
+	entrada=Reemp(entrada,"-"," ");
+	var datos = entrada.split(" ");
+	for (var i = 0; i &lt; datos.length; i++)
+		{
+	ActualA= datos[i];
+	if(ActualA == buscando){
+
+	// reemplazar a mano
+	datos[i] = reemplazo;
+	
+	}
+
+	}
+
+
+	var salida =datos.join(" ");
+	
+	return salida;
+	
+	}
+
+
+
+
+// -----------------
+
+
+
+
+//--------------------------------------------------
+//FIN
+//--------------------------------------------------
+FIN= document.createElement("div");
+FIN.style.backgroundColor="rgb(51, 153, 255)";
+FIN.style.textAlign="center";
+FIN.style.paddingTop="20px";
+FIN.style.paddingBottom="20px";
+FIN.style.fontSize="20pt";
+FIN.style.color="aliceblue";
+FIN.style.fontFamily="impact";
+FIN.style.boxShadow="1px -10px 9px rgb(136, 136, 136)";
+FIN.style.margin="50px 10px";
+FIN.style.borderBottomLeftRadius="10px";
+FIN.style.borderBottomRightRadius="10px";
+FIN.textContent="FIN";
+document.body.appendChild(FIN);
+//--------------------------------------------------
+
+//--------------------------------------------------
+
+
+
+
+
+
+</textarea>
+</div>	
+<div>
+<br>
+Libro <select id="mySelect1">
+  <option>Genesis</option>
+  <option>Exodo</option>
+  <option>Levitico</option> 
+  <option>Numeros</option>
+  <option>Deuteronomio</option>
+
+</select>
+<br>
+Capitulo <input type="text" id="CAPITULO" value=""><br>
+
+Versiculo <input type="text" id="VERSICULO" value=""><br>
+
+Parasha <select id="mySelect2">
+ <option>Bereshit</option><option>  Noaj</option><option>  Lej Lejá</option><option>  Vayerá</option><option>  Jayé Sarah</option><option>  Toledot</option><option>  Vayetsé</option><option>  Vayishlaj</option><option>  Vayéshev</option><option>  Miets</option><option>  Vayigash</option><option>  Vayejí</option><option>  Shemot</option><option>  Vaerá</option><option>  Bo</option><option>  Beshalaj</option><option>  Yitro</option><option>  Mishpatim</option><option>  Terumá</option><option>  Tetsavé</option><option>  Ki Tisá</option><option>  Vayakel</option><option>  Pekudé</option><option>  Vayikra</option><option>  Tsav</option><option>  Shemini</option><option>  Tazria</option><option>  Metsorá</option><option>  Ajaré Mot</option><option>  Kedoshim</option><option>  Emor</option><option>  BeHar</option><option>  Bejukotay</option><option>  Bamidbar</option><option>  Nasó</option><option>  Behaalotejá</option><option>  Shelaj Lejá</option><option>  Kóraj</option><option>  Jukat</option><option>  Balac</option><option>  Pinejás</option><option>  Matot</option><option>  Masé</option><option>  Devarim</option><option>  Vaetjanán</option><option>  Ekev</option><option>  Reé</option><option>  Shofetim</option><option>  Ki Tetzé</option><option>  Ki Tavo</option><option>  Nitzavim</option><option>  Vayélej</option><option>  Haazinu</option><option>  Vezot Haberajá</option>
+</select>
+<br>
+
+
+<button onclick="myFunction()">Listo</button>
+</div>
+
+
+<p id="demo1"></p>
+
+<p id="demo2"></p>
+
+<p id="demo3"></p>
+
+<p id="demo4"></p>
+
+<p id="demo5"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("mySelect1").selectedIndex;
+    var xx =x+1;
+  //  document.getElementById("demo1").innerHTML = xx;
+      
+  var string_LIBRO =xx;
+    
+    
+   //*** 
+    
+ var string_CAPITULO =document.getElementById("CAPITULO").value;
+    
+    // document.getElementById("demo2").innerHTML = string_CAPITULO;
+    
+       //*** 
+       
+    var string_VERSICULO =document.getElementById("VERSICULO").value;
+    
+   //  document.getElementById("demo3").innerHTML = string_VERSICULO; 
+       
+  //*** 
+        var y = document.getElementById("mySelect2").selectedIndex;
+    var yy =y+1;
+   // document.getElementById("demo4").innerHTML = yy;
+    
+     var string_PARASHA =yy;  
+     
+     
+     var URL="http://www.bible.ort.org/books/torahd5.asp?action=displaypage&book="+string_LIBRO+"&chapter="+string_CAPITULO+"&verse="+string_VERSICULO+"&portion="+string_PARASHA;
+
+console.log(URL);
+var str=URL;
+ var result = str.link(URL);
+
+document.getElementById("demo5").innerHTML = result;
+ document.getElementById("myFrame").src = URL;
+
+}
+</script>
+
+<iframe id="myFrame" style="
+    height: 800 px;
+    width: 1000px;
+    height: 400px;
+" ></iframe>
+</body>
+</html>
