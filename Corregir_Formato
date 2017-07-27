@@ -4,6 +4,53 @@
 
 <script>
 
+function Teclas(e){
+    var unicode=e.keyCode? e.keyCode : e.charCode
+    
+	if (unicode=="71"){
+		console.log("Se ha presionado g");
+		Funcionar();
+	}else if (unicode=="66"){
+		console.log("Se ha presionado b");
+		Blanquear();
+	}
+}
+
+</script>
+<script>
+function Funcionar (){
+var Y= document.getElementById("Entrada");
+var yk= Y.value;
+var T = document.getElementById("Salida");
+var D = corregir(yk);
+D = Recode(D);
+T.value=D;
+T.select();
+
+
+}
+</script>
+
+<script>
+ function Invertir(){
+ var T = document.getElementById("Salida");
+ var Y= document.getElementById("Entrada");
+ Y.value=T.value;
+ 
+ }
+
+</script>
+<script>
+function Blanquear(){
+var Y= document.getElementById("Entrada");
+Y.value="";
+
+}
+
+
+</script>
+<script>
+
 function Decode (a){
 var SAL=[];
 var ENT= a.toString().split("");
@@ -48,20 +95,6 @@ return SAL
 </script>
 
 
-<script>
-function Funcionar (){
-var Y= document.getElementById("Entrada");
-var yk= Y.value;
-var T = document.getElementById("Salida");
-var D = corregir(yk);
-D = Recode(D);
-T.value=D;
-T.select();
-
-
-}
-</script>
-
 <style>
 body{
 
@@ -71,7 +104,7 @@ text-align:center;
 }
 </style>
 </head>
-<body>
+<body  onkeyup="Teclas(event);" >
 
 <header style="
     border-top: 5px solid rgb(68,68,68);
@@ -113,6 +146,19 @@ text-align:center;
 <input type="button" onclick="Funcionar();"  value="Pasar">
 </form>
 
+<form action="">
+<input type="button" onclick="Blanquear();"  value="Blanquear">
+</form>
+
+<form action="">
+<input type="button" onclick="Invertir();"  value="Invertir">
+</form>
+
+
+<h5> <p>TECLAS: </p> </h5>
+<h6> <p>G= Funcionar </p>
+<p>B = Blanquear</p>
+</h6>
 
 </td>
     <td>
