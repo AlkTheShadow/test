@@ -453,6 +453,124 @@ FIN.textContent="FIN";
 document.body.appendChild(FIN);
 //--------------------------------------------------
 
+
+// PONER LAS IMAGES AL FINAL
+
+Imagenes= document.createElement("div");
+
+
+/// SEPARAR EN IOMAGES AZULES Y NEGRAS
+var images_ok = [];
+var images_todas = document.getElementsByTagName('img');
+for (i = 0; i < images_todas.length; i++) {
+    var actual = images_todas[i];
+
+    ancho = actual.width;
+    if (ancho == 445) {
+
+        images_ok[images_ok.length] = actual;
+
+    }
+
+}
+
+// diferenciar azul de negro. para esto dividimos el total en 2. la primera mitad es azul. el resto es negro.
+
+
+
+// funcin % . 0 es par.
+var Numimages_ok = images_ok.length;
+
+EsPar = Numimages_ok % 2;
+
+var images_azules = [];
+var images_negras = [];
+
+
+
+if (EsPar == 0) {
+
+    // correr agrgando a azules hasta que el num del aray sea = MITAD-1
+    // si el num de actual es menor o igual que PosicionUltimoAzul, agragarlo a images_azules.si no, a negro;
+
+    for (i = 0; i < images_ok.length; i++) {
+        var actual = images_ok[i];
+
+        posicion = i;
+
+        mitad = Numimages_ok / 2;
+        if (posicion < mitad) {
+
+            images_azules[images_azules.length] = actual;
+
+            console.log("s0y azul y soy el " + i);
+
+        } else {
+
+            images_negras[images_negras.length] = actual;
+
+            console.log("s0y negro y soy el " + i);
+
+        }
+
+    }
+
+
+
+}
+
+/// LISTO.
+
+
+//crearcanvas segun un array
+function Crear_Canvas(arrayConLasImagenes, nombredelcanvas) {
+    var canvas = document.createElement('canvas');
+    var Altura = 90 * arrayConLasImagenes.length;
+    canvas.id = nombredelcanvas;
+    canvas.width = 445;
+    canvas.height = Altura;
+
+
+
+    var context = canvas.getContext('2d');
+    context.globalAlpha = 1.0;
+
+
+    //
+    // imagen uno
+    for (i = 0; i < arrayConLasImagenes.length; i++) {
+        var actual = arrayConLasImagenes[i];
+        var e = i * 90;
+        context.drawImage(actual, 0, e);
+    }
+
+
+    return canvas
+}
+//
+
+
+
+
+Azulcito = Crear_Canvas(images_azules, "CanvasAzul");
+Imagenes.appendChild(Azulcito);
+
+
+Negrito = Crear_Canvas(images_negras, "CanvasNegro");
+Imagenes.appendChild(Negrito);
+
+
+
+
+
+
+document.body.appendChild(Imagenes);
+
+
+
+
+
+
 //--------------------------------------------------
 
 
