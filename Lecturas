@@ -17,6 +17,13 @@ text-align: center;padding-top:20px;padding-bottom:20px ; font-size :20pt; color
 	  <div><br>COPIAR Y PEGAR: <br>
 
 <textarea rows="4" cols="50" style="margin: 0px; width: 386px; height: 60px;">
+
+
+
+//--------------------------------------------------
+
+
+
 //FUNCIONA OK EN CHROME Y MS EDGE - ERROR DE FUENTES EN FIREFOX
 // Consola de desarrollador (Ctrl+Shit+J   CHROME   /  F12   EDGE     /    Crtl+Shift+K  FIREFOX)
 // Copiar y pegar todo
@@ -575,14 +582,6 @@ Imagenes.appendChild(Negrito);
 
 document.body.appendChild(Imagenes);
 
-
-
-
-
-
-
-
-//--------------------------------------------------
 
 
 
