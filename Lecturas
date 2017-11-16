@@ -43,6 +43,7 @@ document.body.appendChild(IN);
 
 //--------------------------------------------------
 
+TRADUCCIONES= document.createElement("div");
 
 
 // DAR EL TITULO
@@ -84,7 +85,7 @@ T_TRES =[];
 T_CUATRO =[];
 
 
-for (i=0;i&lt;T.length;i++){
+for (i=0;i<T.length;i++){
 var actual = T[i];
 
 Largo = actual.attributes	;
@@ -101,7 +102,7 @@ T_CERO[T_CERO.length] = actual;
 	
 }
 
-for (i=0;i&lt;T_CERO.length;i++){
+for (i=0;i<T_CERO.length;i++){
 var actual = T_CERO[i];
 
 tds=actual.getElementsByTagName("td");
@@ -119,7 +120,7 @@ console.log("Tds es "+Tds);
 }
 
 
-for (i=0;i&lt;T_UNO.length;i++){
+for (i=0;i<T_UNO.length;i++){
 var actual = T_UNO[i];
 
 r=actual.getElementsByTagName("tr");
@@ -137,7 +138,7 @@ console.log("Tr es dos en "+i);
 
 
 
-for (i=0;i&lt;T_DOS.length;i++){
+for (i=0;i<T_DOS.length;i++){
 var actual = T_DOS[i];
 
 r=actual.getElementsByTagName("i");
@@ -155,7 +156,7 @@ T_TRES[T_TRES.length] = actual;
 
 // Verificar que no sea la doble de arriba
 
-for (i=0;i&lt;T_TRES.length;i++){
+for (i=0;i<T_TRES.length;i++){
 Actual = T_TRES[i];
 uu=Actual.getElementsByClassName("chaptersm");
 
@@ -170,7 +171,7 @@ console.log("No hay chap en "+Actual.textContent);
 }
 
 // Verificar que no sea el dsicalimer
-for (i=0;i&lt;T_CUATRO.length;i++){
+for (i=0;i<T_CUATRO.length;i++){
 Actual = T_CUATRO[i];
 V=Actual.getElementsByTagName("span");
 io=V[0];
@@ -189,7 +190,7 @@ TABLA = Actual;
 
 spans=TABLA.getElementsByTagName("span");
 
-for (i=0;i&lt;spans.length;i++){
+for (i=0;i<spans.length;i++){
 var actual = spans[i];
 id=actual.id;
 console.log("ID ES "+id);
@@ -213,7 +214,7 @@ var id=a.id;
 return id;
 }
 
-for (i=0;i&lt;spans.length;i++){
+for (i=0;i<spans.length;i++){
 var actual = spans[i];
 id=actual.id;
 console.log("ID ES "+id);
@@ -270,7 +271,7 @@ n.className="DiV";
 		
 var Parrafo_en =Spa(teX);			
 f= document.createElement("div");
-cnt.appendChild(f);
+
 f.className="DiwV";
 
 // poner el color al texto; sacado del num
@@ -301,7 +302,11 @@ f.style.color = " rgb(51 ,102, 255)";
 
 
 f.textContent= Parrafo_en;
-		
+	
+
+TRADUCCIONES.appendChild(f);	
+
+
 		//console.log("TRANSLIT ES EL i "+i);	
 		
         break;
@@ -357,7 +362,7 @@ return ultim;
 
 function Reemp(entrada,buscando,reemplazo){
 	var datos = entrada.split("");
-	for (var i = 0; i &lt; datos.length; i++)
+	for (var i = 0; i < datos.length; i++)
 		{
 	ActualA= datos[i];
 	if(ActualA == buscando){
@@ -379,13 +384,13 @@ function Reemp(entrada,buscando,reemplazo){
 function ReempMuti(Entrada,a,b,Reemplazo){
 
 var datos = Entrada.split("");
-	for (var i = 0; i &lt; datos.length; i++)
+	for (var i = 0; i < datos.length; i++)
 		{
 	ActualA= datos[i];
 	g= i+1;
 	Sig= datos[g];
 	
-	if(ActualA == a &amp;&amp; Sig == b ){
+	if(ActualA == a && Sig == b ){
 
 	// reemplazar a mano
 	
@@ -407,7 +412,7 @@ var datos = Entrada.split("");
 function Palabras(entrada,buscando,reemplazo){
 	entrada=Reemp(entrada,"-"," ");
 	var datos = entrada.split(" ");
-	for (var i = 0; i &lt; datos.length; i++)
+	for (var i = 0; i < datos.length; i++)
 		{
 	ActualA= datos[i];
 	if(ActualA == buscando){
@@ -428,6 +433,7 @@ function Palabras(entrada,buscando,reemplazo){
 
 
 
+document.body.appendChild(TRADUCCIONES);
 
 // -----------------
 
@@ -452,6 +458,9 @@ FIN.style.borderBottomRightRadius="10px";
 FIN.textContent="FIN";
 document.body.appendChild(FIN);
 //--------------------------------------------------
+
+//--------------------------------------------------
+
 
 
 // PONER LAS IMAGES AL FINAL
@@ -565,6 +574,8 @@ Imagenes.appendChild(Negrito);
 
 
 document.body.appendChild(Imagenes);
+
+
 
 
 
