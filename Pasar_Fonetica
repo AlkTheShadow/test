@@ -12,10 +12,10 @@
 function Spa(Entrada){
  unum= Reemp(Entrada,"y","i");
  due= ReempMuti(unum,"c","h","j");
-
+duee= ReempMuti(unum,"C","h","J");
 // Nuevo:
 
- quin = ReempMuti(due,"a","h","a");
+ quin = ReempMuti(duee,"a","h","a");
  ses = ReempMuti(quin,"e","h","e");
  sep = ReempMuti(ses,"i","h","i");
  oct = ReempMuti(sep,"o","h","o");
