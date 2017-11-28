@@ -1,22 +1,150 @@
 <!DOCTYPE html>
 <html style="
+   
     font-variant: small-caps;
     font-family: Calibri;
-    background: rgba(163, 208, 222, 0.35);
+    background: rgba(9, 41, 67, 0.8);
+    /* background: linear-gradient(45deg, rgba(118,183,244,1) 0%, rgba(0,71,148,1) 100%); */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76b7f4', endColorstr='#004794', GradientType=1 );
+    /* background: #324b57; */
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+	
+
+
+
 ">
+
+<style> 	
+.circulo {
+    border-radius: 50%;
+    height: 30px;
+    background: #4AA6FE;
+    border: 3px solid #000;
+    text-align: center;
+    color:white;
+    width: 30px;
+  } </style>
 <body>
 
 <div id="Titulopag" style="
     background-color: rgb(51, 153, 255);
 text-align: center;padding-top:20px;padding-bottom:20px ; font-size :20pt; color:aliceblue; font-family:impact;box-shadow:1px 10px 9px rgb(136, 136, 136);"> TEXTO DE ALIA </div>
 
-<br>
-<div> Abrir idioma español: 
-    <a href="http://www.bible.ort.org/intro1.asp?lang=3"> aqui </a>
-    </div>
-	  <div><br>COPIAR Y PEGAR: <br>
 
-<textarea rows="4" cols="50" style="margin: 0px; width: 386px; height: 60px;">
+  
+  <iframe name="idioma espaniol" style="
+    height: 800 px;
+    width: 1000px;
+    height: 400px;
+    display: none;
+" src="http://www.bible.ort.org/intro1.asp?lang=3"></iframe>
+  
+  
+  
+    </div>
+  <br>
+  
+  <div class="circulo">1</div>
+  
+  <div>
+    
+
+Libro <select id="mySelect1">
+  <option>Genesis</option>
+  <option>Exodo</option>
+  <option>Levitico</option> 
+  <option>Numeros</option>
+  <option>Deuteronomio</option>
+
+</select>
+<br>
+Capitulo <input type="text" id="CAPITULO" value=""><br>
+
+Versiculo <input type="text" id="VERSICULO" value=""><br>
+
+Parasha <select id="mySelect2">
+ <option>Bereshit</option><option>  Noaj</option><option>  Lej Lejá</option><option>  Vayerá</option><option>  Jayé Sarah</option><option>  Toledot</option><option>  Vayetsé</option><option>  Vayishlaj</option><option>  Vayéshev</option><option>  Miets</option><option>  Vayigash</option><option>  Vayejí</option><option>  Shemot</option><option>  Vaerá</option><option>  Bo</option><option>  Beshalaj</option><option>  Yitro</option><option>  Mishpatim</option><option>  Terumá</option><option>  Tetsavé</option><option>  Ki Tisá</option><option>  Vayakel</option><option>  Pekudé</option><option>  Vayikra</option><option>  Tsav</option><option>  Shemini</option><option>  Tazria</option><option>  Metsorá</option><option>  Ajaré Mot</option><option>  Kedoshim</option><option>  Emor</option><option>  BeHar</option><option>  Bejukotay</option><option>  Bamidbar</option><option>  Nasó</option><option>  Behaalotejá</option><option>  Shelaj Lejá</option><option>  Kóraj</option><option>  Jukat</option><option>  Balac</option><option>  Pinejás</option><option>  Matot</option><option>  Masé</option><option>  Devarim</option><option>  Vaetjanán</option><option>  Ekev</option><option>  Reé</option><option>  Shofetim</option><option>  Ki Tetzé</option><option>  Ki Tavo</option><option>  Nitzavim</option><option>  Vayélej</option><option>  Haazinu</option><option>  Vezot Haberajá</option>
+</select>
+<br>
+
+
+<button onclick="myFunction()">Listo</button>
+</div>
+
+
+<p id="demo1"></p>
+
+<p id="demo2"></p>
+
+<p id="demo3"></p>
+
+<p id="demo4"></p>
+
+<p id="demo5"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("mySelect1").selectedIndex;
+    var xx =x+1;
+  //  document.getElementById("demo1").innerHTML = xx;
+      
+  var string_LIBRO =xx;
+    
+    
+   //*** 
+    
+ var string_CAPITULO =document.getElementById("CAPITULO").value;
+    
+    // document.getElementById("demo2").innerHTML = string_CAPITULO;
+    
+       //*** 
+       
+    var string_VERSICULO =document.getElementById("VERSICULO").value;
+    
+   //  document.getElementById("demo3").innerHTML = string_VERSICULO; 
+       
+  //*** 
+        var y = document.getElementById("mySelect2").selectedIndex;
+    var yy =y+1;
+   // document.getElementById("demo4").innerHTML = yy;
+    
+     var string_PARASHA =yy;  
+     
+     
+     var URL="http://www.bible.ort.org/books/torahd5.asp?action=displaypage&book="+string_LIBRO+"&chapter="+string_CAPITULO+"&verse="+string_VERSICULO+"&portion="+string_PARASHA;
+
+console.log(URL);
+var str=URL;
+ var result = str.link(URL);
+
+document.getElementById("demo5").innerHTML = result;
+ document.getElementById("myFrame").src = URL;
+
+}
+</script>
+
+  <script>
+function COPIAR_TEXTO_IFRMAME () {
+var textoo= document.getElementById("PROGRAMA");
+textoo.select();
+document.execCommand('copy',false);	
+  
+  
+ inst= document.getElementById("instrucciones_1");
+ inst.style.display='block';
+}
+
+
+</script>
+
+  
+  <div class="circulo">2</div>
+  
+	  <div><br> <button onclick="COPIAR_TEXTO_IFRMAME()"> CLICK AQUÍ </button>  <br>
+
+<textarea id="PROGRAMA" rows="4" cols="50" style="margin: 0px; width: 386px; height: 60px; display:none;">
 
 
 
@@ -590,82 +718,28 @@ document.body.appendChild(Imagenes);
 
 </textarea>
 </div>	
-<div>
-<br>
-Libro <select id="mySelect1">
-  <option>Genesis</option>
-  <option>Exodo</option>
-  <option>Levitico</option> 
-  <option>Numeros</option>
-  <option>Deuteronomio</option>
-
-</select>
-<br>
-Capitulo <input type="text" id="CAPITULO" value=""><br>
-
-Versiculo <input type="text" id="VERSICULO" value=""><br>
-
-Parasha <select id="mySelect2">
- <option>Bereshit</option><option>  Noaj</option><option>  Lej Lejá</option><option>  Vayerá</option><option>  Jayé Sarah</option><option>  Toledot</option><option>  Vayetsé</option><option>  Vayishlaj</option><option>  Vayéshev</option><option>  Miets</option><option>  Vayigash</option><option>  Vayejí</option><option>  Shemot</option><option>  Vaerá</option><option>  Bo</option><option>  Beshalaj</option><option>  Yitro</option><option>  Mishpatim</option><option>  Terumá</option><option>  Tetsavé</option><option>  Ki Tisá</option><option>  Vayakel</option><option>  Pekudé</option><option>  Vayikra</option><option>  Tsav</option><option>  Shemini</option><option>  Tazria</option><option>  Metsorá</option><option>  Ajaré Mot</option><option>  Kedoshim</option><option>  Emor</option><option>  BeHar</option><option>  Bejukotay</option><option>  Bamidbar</option><option>  Nasó</option><option>  Behaalotejá</option><option>  Shelaj Lejá</option><option>  Kóraj</option><option>  Jukat</option><option>  Balac</option><option>  Pinejás</option><option>  Matot</option><option>  Masé</option><option>  Devarim</option><option>  Vaetjanán</option><option>  Ekev</option><option>  Reé</option><option>  Shofetim</option><option>  Ki Tetzé</option><option>  Ki Tavo</option><option>  Nitzavim</option><option>  Vayélej</option><option>  Haazinu</option><option>  Vezot Haberajá</option>
-</select>
-<br>
 
 
-<button onclick="myFunction()">Listo</button>
-</div>
-
-
-<p id="demo1"></p>
-
-<p id="demo2"></p>
-
-<p id="demo3"></p>
-
-<p id="demo4"></p>
-
-<p id="demo5"></p>
-
-<script>
-function myFunction() {
-    var x = document.getElementById("mySelect1").selectedIndex;
-    var xx =x+1;
-  //  document.getElementById("demo1").innerHTML = xx;
-      
-  var string_LIBRO =xx;
+  
+  
+  <div id="instrucciones_1" style="display:none;">
+            <br> <div class="circulo">3</div> </br>
+  
+  <div> Click derecho -> Inspeccionar elemento </div>
     
     
-   //*** 
-    
- var string_CAPITULO =document.getElementById("CAPITULO").value;
-    
-    // document.getElementById("demo2").innerHTML = string_CAPITULO;
-    
-       //*** 
-       
-    var string_VERSICULO =document.getElementById("VERSICULO").value;
-    
-   //  document.getElementById("demo3").innerHTML = string_VERSICULO; 
-       
-  //*** 
-        var y = document.getElementById("mySelect2").selectedIndex;
-    var yy =y+1;
-   // document.getElementById("demo4").innerHTML = yy;
-    
-     var string_PARASHA =yy;  
-     
-     
-     var URL="http://www.bible.ort.org/books/torahd5.asp?action=displaypage&book="+string_LIBRO+"&chapter="+string_CAPITULO+"&verse="+string_VERSICULO+"&portion="+string_PARASHA;
+    <br> <div class="circulo">4</div> </br>
+  <div> CLick en Conosole </div>
+  
+   <br> <div class="circulo">5</div> </br>
+ <div> CLick en el espacio en blanco, click derecho -> pegar , presionar Enter </div>
+  
 
-console.log(URL);
-var str=URL;
- var result = str.link(URL);
+<br> <div class="circulo">6</div> </br>
+  <div> Cerrar Conosole </div>
 
-document.getElementById("demo5").innerHTML = result;
- document.getElementById("myFrame").src = URL;
-
-}
-</script>
-
+  </div>
+        
 <iframe id="myFrame" style="
     height: 800 px;
     width: 1000px;
