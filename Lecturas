@@ -723,6 +723,7 @@ document.body.appendChild(Imagenes);
 
 
 
+console.clear();
 
 
 
