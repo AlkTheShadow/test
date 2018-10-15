@@ -12,7 +12,7 @@
 function Spa(Entrada){
  unum= Reemp(Entrada,"y","i");
  due= ReempMuti(unum,"c","h","j");
-duee= ReempMuti(unum,"C","h","J");
+
 // Nuevo:
 
  quin = ReempMuti(duee,"a","h","a");
@@ -20,8 +20,15 @@ duee= ReempMuti(unum,"C","h","J");
  sep = ReempMuti(ses,"i","h","i");
  oct = ReempMuti(sep,"o","h","o");
  non = ReempMuti(oct,"u","h","u");
+ // vamos a AGREGAR esto
  
- dec= ReempMuti(non,"o","o","u");
+ UN_MAY= ReempMuti(non,"C","h","J");
+ DUE_MAY= Reemp(UN_MAY,"Y","I");
+ 
+ 
+ // volvemos a lo original
+ 
+ dec= ReempMuti(DUE_MAY,"o","o","u");
  
   ultim = ReempMuti(dec,"i","i","i");
 
