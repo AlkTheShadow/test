@@ -12,14 +12,14 @@
 function Spa(Entrada){
  unum= Reemp(Entrada,"y","i");
  due= ReempMuti(unum,"c","h","j");
-
 // Nuevo:
 
- quin = ReempMuti(duee,"a","h","a");
+ quin = ReempMuti(due,"a","h","a");
  ses = ReempMuti(quin,"e","h","e");
  sep = ReempMuti(ses,"i","h","i");
  oct = ReempMuti(sep,"o","h","o");
  non = ReempMuti(oct,"u","h","u");
+ 
  // vamos a AGREGAR esto
  
  UN_MAY= ReempMuti(non,"C","h","J");
@@ -37,7 +37,7 @@ function Spa(Entrada){
  // "Diccionario"
  
  ultim=Palabras(ultim,"Yisra'el","Israel");
- ultim=Palabras(ultim,"Kena'an","Cna'an");
+ ultim=Palabras(ultim,"Kena'an","Cnaan");
  
  
 return ultim
@@ -180,7 +180,7 @@ font-size:15px;
 font-family: Trebuchet MS;
 text-align:center; ">
 
-<div id="Titulo" style="background-color: rgb(100, 149, 237);
+<div id="Titulo" style="background-color: rgb(237, 120, 100);
 border-top-color: rgb(68, 68, 68);
 border-top-style: solid;
 border-top-width: 5px; text-align: center;
