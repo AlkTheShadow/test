@@ -15,7 +15,51 @@
 
 
 ">
+<script>
+function myFunction() {
+    var x = document.getElementById("mySelect1").selectedIndex;
+    var xx =x+1;
+  //  document.getElementById("demo1").innerHTML = xx;
+      
+  var string_LIBRO =xx;
+    
+    
+   //*** 
+    
+ var string_CAPITULO =document.getElementById("CAPITULO").value;
+    
+    // document.getElementById("demo2").innerHTML = string_CAPITULO;
+    
+       //*** 
+       
+    var string_VERSICULO =document.getElementById("VERSICULO").value;
+    
+   //  document.getElementById("demo3").innerHTML = string_VERSICULO; 
+       
+  //*** 
+        var y = document.getElementById("mySelect2").selectedIndex;
+    var yy =y+1;
+   // document.getElementById("demo4").innerHTML = yy;
+    
+     var string_PARASHA =yy;  
+     
+     
+     var URL="http://www.bible.ort.org/books/torahd5.asp?action=displaypage&book="+string_LIBRO+"&chapter="+string_CAPITULO+"&verse="+string_VERSICULO+"&portion="+string_PARASHA;
 
+console.log(URL);
+var str=URL;
+ var result = str.link(URL);
+
+
+  
+  document.getElementById("demo5").innerHTML = result;
+    document.getElementById("demo5").style.fontSize="small";
+
+  
+ document.getElementById("myFrame").src = URL;
+
+}
+</script>
 <style> 	
 .circulo {
     border-radius: 50%;
@@ -87,51 +131,7 @@ Parasha <select id="mySelect2">
 
 <p id="demo5"></p>
 
-<script>
-function myFunction() {
-    var x = document.getElementById("mySelect1").selectedIndex;
-    var xx =x+1;
-  //  document.getElementById("demo1").innerHTML = xx;
-      
-  var string_LIBRO =xx;
-    
-    
-   //*** 
-    
- var string_CAPITULO =document.getElementById("CAPITULO").value;
-    
-    // document.getElementById("demo2").innerHTML = string_CAPITULO;
-    
-       //*** 
-       
-    var string_VERSICULO =document.getElementById("VERSICULO").value;
-    
-   //  document.getElementById("demo3").innerHTML = string_VERSICULO; 
-       
-  //*** 
-        var y = document.getElementById("mySelect2").selectedIndex;
-    var yy =y+1;
-   // document.getElementById("demo4").innerHTML = yy;
-    
-     var string_PARASHA =yy;  
-     
-     
-     var URL="http://www.bible.ort.org/books/torahd5.asp?action=displaypage&book="+string_LIBRO+"&chapter="+string_CAPITULO+"&verse="+string_VERSICULO+"&portion="+string_PARASHA;
 
-console.log(URL);
-var str=URL;
- var result = str.link(URL);
-
-
-  
-  document.getElementById("demo5").innerHTML = result;
-    document.getElementById("demo5").style.fontSize="small";
-
-  
- document.getElementById("myFrame").src = URL;
-
-}
-</script>
 
   <script>
 function COPIAR_TEXTO_IFRMAME () {
