@@ -178,7 +178,7 @@ text-align:center;
 <body  onkeyup="Teclas(event);" style="
 font-size:15px; 
 font-family: Trebuchet MS;
-text-align:center; ">
+text-align:center;background-color: #7d818236; ">
 
 <div id="Titulo" style="background-color: rgb(237, 120, 100);
 border-top-color: rgb(68, 68, 68);
@@ -203,14 +203,14 @@ display: block;">
 <div id="entrada">
 <h4>Pegar texto aquí</h4>
 
-<textarea rows="40" cols="50" id="Entrada">
+<textarea rows="40" cols="50" id="Entrada" style="border-radius: 3%;">
 </textarea>
 </div></td>
 
 <td>
 
 <form action="">
-<input type="button" onclick="Funcionar();"  value="Pasar">
+<input type="button" onclick="Funcionar();"  value="Convertir" style="font-size: 20px;font-family: Gisha;margin: 1px;-WEBKIT-TEXT-STROKE: MEDIUM;background-color: rgb(135, 194, 228);border-radius: 5px;text-shadow: 1px 1px 2px ghostwhite;">
 </form>
 
 <form action="">
@@ -234,7 +234,7 @@ display: block;">
 <div id="salida">
 <h4>Salida</h4>
 
-<textarea rows="40" cols="50" id="Salida">
+<textarea rows="40" cols="50" id="Salida" style="border-radius: 3%;">
 </textarea>
 </div></td>		
     
