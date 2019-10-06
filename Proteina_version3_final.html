@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+.titulo1{
+  
+      font-weight: bolder;
+
+    font-size: x-large;
+   font-family: Calibri;
+text-align:left; 
+}
+.titulo2{
+
+      font-weight: bolder;
+
+    font-size: large;
+   font-family: Gisha;
+text-align:left; 
+}
+td.b {
+color: #e3e4e4;
+width:20%
+}
+    input{
+      width:50%
+      
+    }
+</style>
+  
+  <script>
+function myFunction() {
+  var x=0;
+  
+  var Tabla = document.getElementById("Gramos");
+  var Rows = Tabla.rows;
+  
+ for (i = 0; i < Rows.length; i++) {
+        var y = Rows[i];
+        var Numero= y.cells[1].firstElementChild.value;
+		var a=  Number(Numero);
+var b =  Number(y.cells[2].innerText);
+var c = a*b;
+y.cells[3].innerText= c;
+   
+   var PrAcumulada= x+c
+   x=PrAcumulada;
+		
+		
+    }
+  
+
+  var TOTALPR= x.toFixed(2);
+ var TOTALPR_String= TOTALPR.toString();
+ var datos = TOTALPR_String.split("");
+	for (var i = 0; i < TOTALPR_String.length; i++)
+		{
+	ActualA= datos[i];
+	if(ActualA == "."){
+
+	// reemplazar a mano
+	datos[i] = ",";
+	
+	}
+	}
+	var salida =datos.join("");
+	var PRcorregida=salida;
+  
+  
+  document.getElementById("RESPUESTA").innerHTML = "TOTAL: " + PRcorregida + " gramos de Proteína";
+
+  
+}
+    
+    
+    
+</script>
+  
+</head>
+<body   style="
+font-size:15px; 
+font-family: Trebuchet MS;
+text-align:left;background-color: #7d818236; ">
+
+<div id="Titulo" style="background-color: rgb(237, 120, 100);
+border-top-color: rgb(68, 68, 68);
+border-top-style: solid;
+border-top-width: 5px; text-align: center;
+    text-shadow: 1px 1px 2px black;
+    font-size: x-large;
+    color: white;
+display: block;">
+<h2> </h2>
+<h2>Calcular Proteinas</h2>
+<h2> </h2>
+<h2> </h2>
+</div>
+  
+  
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>PROTEINAS</title>
+</head>
+<body>
+
+  <div>
+    <p class="titulo1"> Cantidad (Gramos o número de unidades)</p>
+  <div class="contenido">
+<table id="Gramos">
+  <tr>
+    <td>LENTEJAS</td>
+    <td>    <input type="number" value="0"></td>
+    <td class="b">0.09</td>
+    <td class="b" ></td>
+   
+  </tr>
+  <tr>
+    <td>POROTOS NEGROS</td>
+    <td> <input type="number" id="POROTOS_NEGROS" value="0"></td>
+  <td class="b" >0.22</td>
+  <td class="b" ></td>
+    
+  </tr>
+  <tr>
+    <td>POLLO</td>
+    <td><input type="number" value="0"></td>
+   <td  class="b"  ; >0.27</td>
+   <td class="b" ></td>
+  </tr>
+  
+   <tr>
+    <td>CARNE ROJA</td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.25</td>
+   <td class="b" ></td>
+  </tr>
+  
+  <tr>
+    <td>QUESO CREMOSO</td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.18</td>
+   <td class="b" ></td>
+  </tr>
+  
+     <tr>
+    <td>ARROZ </td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.025</td>
+   <td class="b" ></td>
+  </tr>
+  
+  <tr>
+    <td>AVENA</td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.133</td>
+   <td class="b" ></td>
+  </tr>
+  
+       <tr>
+    <td>QUESO UNTABLE </td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.043</td>
+   <td class="b" ></td>
+  </tr>
+  
+
+    
+  <tr>
+    <td>GARBANZO </td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.084</td>
+   <td class="b" ></td>
+  </tr>
+  
+    
+       <tr>
+    <td>BROCOLI  </td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.036</td>
+   <td class="b" ></td>
+  </tr>
+    <tr>
+    <td>ESPINACA  </td>
+    <td><input type="number" value="0"></td>
+   <td class="b" >0.026</td>
+   <td class="b" ></td>
+  </tr>
+     
+
+  
+   <tr>
+    <td>HUEVOS (numero) </td>
+    <td>    <input type="number" value="0"></td>
+    <td class="b">8</td>
+    <td class="b" ></td>
+</tr>   
+   <tr>
+	
+   <td>VASOS DE LECHE (numero)</td>
+    <td>    <input type="number" value="0"></td>
+    <td class="b">3</td>
+    <td class="b" ></td>
+	</tr>
+	 <tr>
+	
+   <td>ALMEDRAS (numero) </td>
+    <td>    <input type="number" value="0"></td>
+    <td class="b">0.24</td>
+    <td class="b" ></td>
+  </tr>
+  
+
+</table>
+
+<button onclick="myFunction()" style= "border-width: medium;
+    background-color: #f9f1e6;
+    font-size: large;
+    border-style: groove;
+    border-color: aqua;">CALCULAR</button>
+
+    
+    <p class="titulo2" id="RESPUESTA"></p>
+    
+    <div/>
+    
+    
+    <div/>
+  
+</body>
+</html>
